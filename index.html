@@ -1,11 +1,19 @@
 <!doctype html>
-<html lang="id">
-<head>
+<html lang="id" class="h-full">
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tisna Dwi Cahyono - Portofolio Guru</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&amp;family=Lato:wght@400;500;700&amp;display=swap" rel="stylesheet">
   <style>
-    /* === VARIABEL & RESET === */
+    body {
+      box-sizing: border-box;
+    }
+    
     :root {
       --primary-dark: #5C4033;
       --primary-darker: #3C2F2F;
@@ -17,6 +25,7 @@
       --text-secondary: #6B5A4A;
       --border-color: #D7C9B8;
     }
+    
     .dark {
       --primary-dark: #D4A373;
       --primary-darker: #A67C52;
@@ -28,190 +37,74 @@
       --text-secondary: #DDDDDD;
       --border-color: #444444;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    * {
+      font-family: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6, .section-title {
+      font-family: 'Merriweather', serif;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
     body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      background: var(--bg-primary);
+      background-color: var(--bg-primary);
       color: var(--text-primary);
-      transition: background 0.3s, color 0.3s;
-      line-height: 1.5;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-    h1, h2, h3, h4, .section-title {
-      font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
-      font-weight: 700;
-    }
-
-    /* === LAYOUT & UTILITY === */
-    .max-w-7xl { max-width: 1280px; margin-left: auto; margin-right: auto; }
-    .px-4 { padding-left: 1rem; padding-right: 1rem; }
-    .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-    .px-8 { padding-left: 2rem; padding-right: 2rem; }
-    .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-    .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-    .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-    .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-    .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
-    .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
-    .p-2 { padding: 0.5rem; }
-    .p-4 { padding: 1rem; }
-    .p-5 { padding: 1.25rem; }
-    .p-6 { padding: 1.5rem; }
-    .p-8 { padding: 2rem; }
-    .m-0 { margin: 0; }
-    .mx-auto { margin-left: auto; margin-right: auto; }
-    .my-4 { margin-top: 1rem; margin-bottom: 1rem; }
-    .mb-1 { margin-bottom: 0.25rem; }
-    .mb-2 { margin-bottom: 0.5rem; }
-    .mb-3 { margin-bottom: 0.75rem; }
-    .mb-4 { margin-bottom: 1rem; }
-    .mb-6 { margin-bottom: 1.5rem; }
-    .mb-8 { margin-bottom: 2rem; }
-    .mb-12 { margin-bottom: 3rem; }
-    .mt-6 { margin-top: 1.5rem; }
-    .gap-1 { gap: 0.25rem; }
-    .gap-2 { gap: 0.5rem; }
-    .gap-4 { gap: 1rem; }
-    .gap-6 { gap: 1.5rem; }
-    .flex { display: flex; }
-    .flex-col { flex-direction: column; }
-    .items-center { align-items: center; }
-    .items-start { align-items: flex-start; }
-    .justify-center { justify-content: center; }
-    .justify-between { justify-content: space-between; }
-    .grid { display: grid; }
-    .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .sm\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-    .lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-    .hidden { display: none; }
-    .lg\:flex { display: flex; }
-    .block { display: block; }
-    .inline-block { display: inline-block; }
-    .text-center { text-align: center; }
-    .text-left { text-align: left; }
-    .text-sm { font-size: 0.875rem; }
-    .text-lg { font-size: 1.125rem; }
-    .text-xl { font-size: 1.25rem; }
-    .text-2xl { font-size: 1.5rem; }
-    .text-3xl { font-size: 1.875rem; }
-    .text-4xl { font-size: 2.25rem; }
-    .text-5xl { font-size: 3rem; }
-    .text-6xl { font-size: 3.75rem; }
-    .text-7xl { font-size: 4.5rem; }
-    .font-medium { font-weight: 500; }
-    .font-bold { font-weight: 700; }
-    .leading-tight { line-height: 1.25; }
-    .leading-relaxed { line-height: 1.625; }
-    .rounded { border-radius: 0.25rem; }
-    .rounded-lg { border-radius: 0.5rem; }
-    .rounded-xl { border-radius: 0.75rem; }
-    .rounded-full { border-radius: 9999px; }
-    .border { border-width: 1px; border-style: solid; }
-    .border-b { border-bottom-width: 1px; }
-    .border-t { border-top-width: 1px; }
-    .border-theme { border-color: var(--border-color); }
-    .bg-primary { background: var(--bg-primary); }
-    .bg-secondary { background: var(--bg-secondary); }
-    .primary-dark { background: var(--primary-dark); }
-    .text-primary { color: var(--text-primary); }
-    .text-secondary { color: var(--text-secondary); }
-    .primary-dark-text { color: var(--primary-dark); }
-    .primary-light-text { color: var(--primary-light); }
-    .text-white { color: #fff; }
-    .w-5 { width: 1.25rem; }
-    .w-6 { width: 1.5rem; }
-    .w-8 { width: 2rem; }
-    .w-10 { width: 2.5rem; }
-    .w-12 { width: 3rem; }
-    .w-14 { width: 3.5rem; }
-    .w-16 { width: 4rem; }
-    .w-full { width: 100%; }
-    .h-5 { height: 1.25rem; }
-    .h-6 { height: 1.5rem; }
-    .h-8 { height: 2rem; }
-    .h-10 { height: 2.5rem; }
-    .h-12 { height: 3rem; }
-    .h-14 { height: 3.5rem; }
-    .h-16 { height: 4rem; }
-    .h-40 { height: 10rem; }
-    .h-44 { height: 11rem; }
-    .h-full { height: 100%; }
-    .min-h-screen { min-height: 100vh; }
-    .aspect-square { aspect-ratio: 1 / 1; }
-    .relative { position: relative; }
-    .absolute { position: absolute; }
-    .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
-    .sticky { position: sticky; }
-    .top-0 { top: 0; }
-    .z-50 { z-index: 50; }
-    .overflow-hidden { overflow: hidden; }
-    .overflow-auto { overflow: auto; }
-    .flex-1 { flex: 1; }
-    .flex-shrink-0 { flex-shrink: 0; }
-    .cursor-pointer { cursor: pointer; }
-    .transition-colors { transition: color 0.2s, background 0.2s; }
-    .transition-transform { transition: transform 0.2s; }
-    .transition-shadow { transition: box-shadow 0.2s; }
-    .hover\:scale-105:hover { transform: scale(1.05); }
-    .hover\:shadow-2xl:hover { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
-    .hover\:bg-secondary:hover { background: var(--bg-secondary); }
-    .hover\:opacity-80:hover { opacity: 0.8; }
-    .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); }
-    .backdrop-blur { backdrop-filter: blur(4px); }
-    .bg-white\/20 { background: rgba(255,255,255,0.2); }
-    .bg-black\/60 { background: rgba(0,0,0,0.6); }
-    .bg-gradient-to-br { background: linear-gradient(to bottom right, var(--tw-gradient-stops)); }
-    .from-amber-700 { --tw-gradient-from: #b45309; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(180, 83, 9, 0)); }
-    .to-amber-900 { --tw-gradient-to: #78350f; }
-    .from-green-700 { --tw-gradient-from: #047857; }
-    .to-green-900 { --tw-gradient-to: #064e3b; }
-    .from-orange-700 { --tw-gradient-from: #c2410c; }
-    .to-orange-900 { --tw-gradient-to: #7b341e; }
-    .from-purple-700 { --tw-gradient-from: #6d28d9; }
-    .to-purple-900 { --tw-gradient-to: #4c1d95; }
-    .from-pink-700 { --tw-gradient-from: #be185d; }
-    .to-pink-900 { --tw-gradient-to: #831843; }
-    .from-red-700 { --tw-gradient-from: #b91c1c; }
-    .to-red-900 { --tw-gradient-to: #7f1d1d; }
-    .from-teal-700 { --tw-gradient-from: #0f766e; }
-    .to-teal-900 { --tw-gradient-to: #115e59; }
-    .from-amber-600 { --tw-gradient-from: #d97706; }
-    .to-amber-800 { --tw-gradient-to: #92400e; }
-    .from-green-600 { --tw-gradient-from: #059669; }
-    .to-green-800 { --tw-gradient-to: #065f46; }
-    .from-yellow-600 { --tw-gradient-from: #ca8a04; }
-    .to-orange-700 { --tw-gradient-to: #c2410c; }
-    .from-purple-600 { --tw-gradient-from: #7c3aed; }
-    .to-purple-800 { --tw-gradient-to: #5b21b6; }
-    .from-pink-600 { --tw-gradient-from: #db2777; }
-    .to-pink-800 { --tw-gradient-to: #9d174d; }
-    .from-teal-600 { --tw-gradient-from: #0d9488; }
-    .to-teal-800 { --tw-gradient-to: #115e59; }
-    .from-red-600 { --tw-gradient-from: #dc2626; }
-    .to-red-800 { --tw-gradient-to: #991b1b; }
-    .from-indigo-600 { --tw-gradient-from: #4f46e5; }
-    .to-indigo-800 { --tw-gradient-to: #3730a3; }
-    .border-theme { border-color: var(--border-color); }
+    
     .bg-primary { background-color: var(--bg-primary); }
     .bg-secondary { background-color: var(--bg-secondary); }
+    .text-primary { color: var(--text-primary); }
     .text-secondary { color: var(--text-secondary); }
-
-    /* === KOMPONEN === */
+    .border-theme { border-color: var(--border-color); }
+    .primary-dark { background-color: var(--primary-dark); }
+    .primary-dark-text { color: var(--primary-dark); }
+    .primary-light { background-color: var(--primary-light); }
+    .primary-light-text { color: var(--primary-light); }
+    
     .card {
-      background: var(--bg-secondary);
+      background-color: var(--bg-secondary);
       border: 1px solid var(--border-color);
-      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      transition: all 0.3s ease;
     }
+    
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 40px rgba(0,0,0,0.3);
       border-color: var(--primary-light);
     }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    
     .nav-link {
       position: relative;
+      transition: color 0.2s ease;
       color: var(--text-secondary);
-      transition: color 0.2s;
     }
+    
     .nav-link::after {
       content: '';
       position: absolute;
@@ -219,17 +112,35 @@
       left: 0;
       width: 0;
       height: 3px;
-      background: var(--primary-light);
-      transition: width 0.3s;
+      background-color: var(--primary-light);
+      transition: width 0.3s ease;
     }
+    
     .nav-link:hover::after,
-    .nav-link.active::after { width: 100%; }
-    .nav-link:hover { color: var(--primary-dark); }
+    .nav-link.active::after {
+      width: 100%;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary-dark);
+    }
+    
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    
+    .mobile-menu.open {
+      max-height: 800px;
+    }
+    
     .section-title {
       position: relative;
       display: inline-block;
       color: var(--primary-dark);
     }
+    
     .section-title::after {
       content: '';
       position: absolute;
@@ -240,872 +151,884 @@
       background: linear-gradient(90deg, var(--primary-light), var(--primary-light) 50%, transparent 50%);
       border-radius: 2px;
     }
+    
     .btn-primary {
-      background: var(--primary-dark);
+      background-color: var(--primary-dark);
       color: white;
-      transition: background 0.2s, transform 0.2s;
-      display: inline-block;
-      text-align: center;
+      transition: all 0.2s ease;
     }
+    
     .btn-primary:hover {
-      background: var(--primary-darker);
+      background-color: var(--primary-darker);
       transform: scale(1.02);
     }
+    
     .btn-secondary {
-      background: var(--primary-light);
+      background-color: var(--primary-light);
       color: var(--primary-darker);
+      transition: all 0.2s ease;
       font-weight: 600;
-      transition: background 0.2s, transform 0.2s;
     }
+    
     .btn-secondary:hover {
-      background: var(--primary-lighter);
+      background-color: var(--primary-lighter);
       transform: scale(1.02);
     }
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s;
+
+    .section-hidden {
+      display: none !important;
     }
-    .mobile-menu.open { max-height: 800px; }
-    .section-hidden { display: none !important; }
-    .section-visible { display: block; }
-    .feature-card { cursor: pointer; }
+    
+    .section-visible {
+      display: block;
+    }
+
+    .feature-card {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
     .feature-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 16px 50px rgba(0,0,0,0.4);
     }
-
-    /* === ANIMASI === */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in-up {
-      animation: fadeInUp 0.6s ease-out forwards;
-    }
-    .delay-100 { animation-delay: 0.1s; }
-    .delay-200 { animation-delay: 0.2s; }
-    .delay-300 { animation-delay: 0.3s; }
-    .delay-400 { animation-delay: 0.4s; }
-
-    /* === RESPONSIVE === */
-    @media (min-width: 640px) {
-      .sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-      .sm\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-      .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-    }
-    @media (min-width: 1024px) {
-      .lg\:flex { display: flex; }
-      .lg\:hidden { display: none; }
-      .lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
-      .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
-    }
   </style>
-</head>
-<body class="min-h-screen overflow-auto">
-  <div id="app">
-    <!-- Navigation -->
-    <nav id="navbar" class="sticky top-0 z-50 bg-primary border-b border-theme shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <a href="#home" onclick="showSection('home'); return false;" class="flex items-center">
-            <div class="w-10 h-10 rounded-xl primary-dark flex items-center justify-center">
-              <span class="text-xl">🎓</span>
-            </div>
-          </a>
-          <!-- Desktop Menu -->
-          <div class="hidden lg:flex items-center gap-1">
-            <a href="#home" onclick="showSection('home'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Home</a>
-            <a href="#profil" onclick="showSection('profil'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Profil</a>
-            <a href="#modul" onclick="showSection('modul'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Modul Ajar</a>
-            <a href="#buku" onclick="showSection('buku'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Buku Siswa</a>
-            <a href="#materi" onclick="showSection('materi'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Materi</a>
-            <a href="#video" onclick="showSection('video'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Video</a>
-            <a href="#latihan" onclick="showSection('latihan'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Latihan</a>
-            <a href="#game" onclick="showSection('game'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Game</a>
-            <a href="#galeri" onclick="showSection('galeri'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Galeri</a>
-            <a href="#kontak" onclick="showSection('kontak'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Kontak</a>
-          </div>
-          <!-- Dark Mode Toggle & Hamburger -->
-          <div class="flex items-center gap-2">
-            <button id="theme-toggle" class="p-2 rounded-lg hover:bg-secondary transition-colors" title="Toggle Dark Mode">
-              <svg id="sun-icon" class="w-5 h-5 text-secondary hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-              <svg id="moon-icon" class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-              </svg>
-            </button>
-            <button id="menu-toggle" class="lg:hidden p-2 rounded-lg hover:bg-secondary transition-colors">
-              <svg id="menu-icon" class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-              <svg id="close-icon" class="w-6 h-6 text-secondary hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu lg:hidden border-t border-theme">
-          <div class="py-4 space-y-1">
-            <a href="#home" onclick="showSection('home'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">🏠 Home</a>
-            <a href="#profil" onclick="showSection('profil'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">👤 Profil Guru</a>
-            <a href="#modul" onclick="showSection('modul'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📚 Modul Ajar</a>
-            <a href="#buku" onclick="showSection('buku'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📖 Buku Siswa</a>
-            <a href="#materi" onclick="showSection('materi'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📝 Materi Pembelajaran</a>
-            <a href="#video" onclick="showSection('video'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">🎬 Video Pembelajaran</a>
-            <a href="#latihan" onclick="showSection('latihan'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">✏️ Latihan Soal</a>
-            <a href="#game" onclick="showSection('game'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">🎮 Game Interaktif</a>
-            <a href="#galeri" onclick="showSection('galeri'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📷 Galeri Kegiatan</a>
-            <a href="#kontak" onclick="showSection('kontak'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📧 Kontak</a>
-          </div>
-        </div>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full overflow-auto">
+  <div id="app" class="min-h-full"><!-- Navigation -->
+   <nav id="navbar" class="sticky top-0 z-50 bg-primary border-b border-theme shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex items-center justify-between h-16"><!-- Logo --> <a href="#home" class="flex items-center" onclick="showSection('home'); return false;">
+       <div class="w-10 h-10 rounded-xl primary-dark flex items-center justify-center"><span class="text-xl">🎓</span>
+       </div></a> <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center gap-1"><a href="#home" onclick="showSection('home'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Home</a> <a href="#profil" onclick="showSection('profil'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Profil</a> <a href="#modul" onclick="showSection('modul'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Modul Ajar</a> <a href="#buku" onclick="showSection('buku'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Buku Siswa</a> <a href="#materi" onclick="showSection('materi'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Materi</a> <a href="#video" onclick="showSection('video'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Video</a> <a href="#latihan" onclick="showSection('latihan'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Latihan</a> <a href="#game" onclick="showSection('game'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Game</a> <a href="#galeri" onclick="showSection('galeri'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Galeri</a> <a href="#kontak" onclick="showSection('kontak'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Kontak</a>
+      </div><!-- Dark Mode Toggle & Hamburger -->
+      <div class="flex items-center gap-2"><button id="theme-toggle" class="p-2 rounded-lg hover:bg-secondary transition-colors" title="Toggle Dark Mode">
+        <svg id="sun-icon" class="w-5 h-5 text-secondary hidden" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg id="moon-icon" class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg></button> <button id="menu-toggle" class="lg:hidden p-2 rounded-lg hover:bg-secondary transition-colors">
+        <svg id="menu-icon" class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 text-secondary hidden" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg></button>
       </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="relative overflow-hidden bg-primary min-h-screen flex items-center section-visible">
-      <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute -top-40 -right-40 w-80 h-80 rounded-full" style="background: radial-gradient(circle, rgba(193,154,107,0.15) 0%, transparent 70%);"></div>
-        <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full" style="background: radial-gradient(circle, rgba(193,154,107,0.1) 0%, transparent 70%);"></div>
-        <div class="absolute top-1/2 left-1/4 w-64 h-64 rounded-full" style="background: radial-gradient(circle, rgba(193,154,107,0.08) 0%, transparent 70%);"></div>
+     </div><!-- Mobile Menu -->
+     <div id="mobile-menu" class="mobile-menu lg:hidden border-t border-theme">
+      <div class="py-4 space-y-1"><a href="#home" onclick="showSection('home'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">🏠 Home</a> <a href="#profil" onclick="showSection('profil'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">👤 Profil Guru</a> <a href="#modul" onclick="showSection('modul'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📚 Modul Ajar</a> <a href="#buku" onclick="showSection('buku'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📖 Buku Siswa</a> <a href="#materi" onclick="showSection('materi'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📝 Materi Pembelajaran</a> <a href="#video" onclick="showSection('video'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">🎬 Video Pembelajaran</a> <a href="#latihan" onclick="showSection('latihan'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">✏️ Latihan Soal</a> <a href="#game" onclick="showSection('game'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">🎮 Game Interaktif</a> <a href="#galeri" onclick="showSection('galeri'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📷 Galeri Kegiatan</a> <a href="#kontak" onclick="showSection('kontak'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📧 Kontak</a>
       </div>
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-        <div class="text-center max-w-3xl mx-auto">
-          <div class="inline-block mb-8 px-4 py-2 rounded-full animate-fade-in-up" style="background: linear-gradient(135deg, rgba(193,154,107,0.2), rgba(193,154,107,0.1)); border: 1px solid var(--border-color);">
-            <span class="text-sm font-medium primary-light-text">📚 Portal Pembelajaran Digital</span>
-          </div>
-          <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
-            <span class="primary-dark-text">Arsip Digital</span><br>
-            <span class="primary-light-text">Guru</span>
-          </h1>
-          <p id="hero-welcome" class="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed text-secondary animate-fade-in-up delay-200">Selamat datang di Arsip Digital Guru!</p>
-          <div class="grid sm:grid-cols-3 gap-6 mb-12 animate-fade-in-up delay-300">
-            <div class="card rounded-2xl p-8 text-center hover:shadow-2xl feature-card" onclick="showSection('game'); return false;">
-              <div class="text-6xl mb-4 flex justify-center">🎮</div>
-              <h3 class="font-bold text-primary text-lg mb-3">Game Interaktif</h3>
-              <p class="text-secondary text-sm leading-relaxed">Belajar sambil bermain dengan game edukatif yang menyenangkan dan menantang untuk semua siswa</p>
-            </div>
-            <div class="card rounded-2xl p-8 text-center hover:shadow-2xl feature-card" onclick="showSection('video'); return false;">
-              <div class="text-6xl mb-4 flex justify-center">🎬</div>
-              <h3 class="font-bold text-primary text-lg mb-3">Video Pembelajaran</h3>
-              <p class="text-secondary text-sm leading-relaxed">Konten video berkualitas tinggi yang memudahkan pemahaman materi dengan visual yang menarik</p>
-            </div>
-            <div class="card rounded-2xl p-8 text-center hover:shadow-2xl feature-card" onclick="showSection('latihan'); return false;">
-              <div class="text-6xl mb-4 flex justify-center">✏️</div>
-              <h3 class="font-bold text-primary text-lg mb-3">Latihan Soal</h3>
-              <p class="text-secondary text-sm leading-relaxed">Soal latihan dengan berbagai tingkat kesulitan untuk mengasah kemampuan dan persiapan ujian</p>
-            </div>
-          </div>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="home" class="relative overflow-hidden bg-primary min-h-screen flex items-center section-visible">
+    <div class="absolute inset-0 overflow-hidden">
+     <div class="absolute -top-40 -right-40 w-80 h-80 rounded-full" style="background: radial-gradient(circle, rgba(193, 154, 107, 0.15) 0%, transparent 70%);"></div>
+     <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full" style="background: radial-gradient(circle, rgba(193, 154, 107, 0.1) 0%, transparent 70%);"></div>
+     <div class="absolute top-1/2 left-1/4 w-64 h-64 rounded-full" style="background: radial-gradient(circle, rgba(193, 154, 107, 0.08) 0%, transparent 70%);"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+     <div class="text-center max-w-3xl mx-auto"><!-- Decorative badge -->
+      <div class="inline-block mb-8 px-4 py-2 rounded-full animate-fade-in-up" style="background: linear-gradient(135deg, rgba(193, 154, 107, 0.2), rgba(193, 154, 107, 0.1)); border: 1px solid var(--border-color);"><span class="text-sm font-medium primary-light-text">📚 Portal Pembelajaran Digital</span>
+      </div><!-- Main heading -->
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up"><span class="primary-dark-text">Arsip Digital</span> <br><span class="primary-light-text">Guru</span></h1><!-- Welcome description -->
+      <p id="hero-welcome" class="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed text-secondary animate-fade-in-up delay-200">Selamat datang di Arsip Digital Guru!</p><!-- Feature highlights - Clickable Cards -->
+      <div class="grid sm:grid-cols-3 gap-6 mb-12 animate-fade-in-up delay-300">
+       <div class="card rounded-2xl p-8 text-center hover:shadow-2xl feature-card cursor-pointer" onclick="showSection('game'); return false;">
+        <div class="text-6xl mb-4 flex justify-center">
+         🎮
         </div>
+        <h3 class="font-bold text-primary text-lg mb-3">Game Interaktif</h3>
+        <p class="text-secondary text-sm leading-relaxed">Belajar sambil bermain dengan game edukatif yang menyenangkan dan menantang untuk semua siswa</p>
+       </div>
+       <div class="card rounded-2xl p-8 text-center hover:shadow-2xl feature-card cursor-pointer" onclick="showSection('video'); return false;">
+        <div class="text-6xl mb-4 flex justify-center">
+         🎬
+        </div>
+        <h3 class="font-bold text-primary text-lg mb-3">Video Pembelajaran</h3>
+        <p class="text-secondary text-sm leading-relaxed">Konten video berkualitas tinggi yang memudahkan pemahaman materi dengan visual yang menarik</p>
+       </div>
+       <div class="card rounded-2xl p-8 text-center hover:shadow-2xl feature-card cursor-pointer" onclick="showSection('latihan'); return false;">
+        <div class="text-6xl mb-4 flex justify-center">
+         ✏️
+        </div>
+        <h3 class="font-bold text-primary text-lg mb-3">Latihan Soal</h3>
+        <p class="text-secondary text-sm leading-relaxed">Soal latihan dengan berbagai tingkat kesulitan untuk mengasah kemampuan dan persiapan ujian</p>
+       </div>
       </div>
-    </section>
-
-    <!-- Profil Section -->
-    <section id="profil" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 animate-fade-in-up">
-          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Profil Guru</h2>
-          <p class="text-secondary mt-6">Mengenal lebih dekat tentang saya</p>
-        </div>
-        <div class="card rounded-2xl p-6 md:p-8 max-w-2xl mx-auto animate-fade-in-up delay-100">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center"><span class="text-2xl">📋</span></div>
-            <h3 class="text-xl font-bold text-primary">Data Diri</h3>
-          </div>
-          <div class="space-y-4">
-            <div class="flex justify-between py-3 border-b border-theme">
-              <span class="text-secondary">Nama Lengkap</span>
-              <span id="full-name" class="font-medium text-primary">Tisna Dwi Cahyono, S.Pd</span>
-            </div>
-            <div class="flex justify-between py-3 border-b border-theme">
-              <span class="text-secondary">Jabatan</span>
-              <span id="position" class="font-medium text-primary">Guru Kelas 5</span>
-            </div>
-            <div class="flex justify-between py-3">
-              <span class="text-secondary">Sekolah</span>
-              <span id="school" class="font-medium text-primary">SD Negeri Kunjang 2 Kec. Kunjang Kab. Kediri</span>
-            </div>
-          </div>
-        </div>
+     </div>
+    </div>
+   </section><!-- Profil Section -->
+   <section id="profil" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12 animate-fade-in-up">
+      <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Profil Guru</h2>
+      <p class="text-secondary mt-6">Mengenal lebih dekat tentang saya</p>
+     </div>
+     <div class="card rounded-2xl p-6 md:p-8 max-w-2xl mx-auto animate-fade-in-up delay-100">
+      <div class="flex items-center gap-4 mb-6">
+       <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center"><span class="text-2xl">📋</span>
+       </div>
+       <h3 class="text-xl font-bold text-primary">Data Diri</h3>
       </div>
-    </section>
-
-    <!-- Modul Ajar Section -->
-    <section id="modul" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 animate-fade-in-up">
-          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Modul Ajar</h2>
-          <p class="text-secondary mt-6">Pembelajaran Mendalam</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🇮🇩</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">Pendidikan Pancasila</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran Pancasila mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">📖</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">Bahasa Indonesia</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran Bahasa Indonesia mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🔢</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">Matematika</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran Matematika mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🔬</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">IPAS</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran IPAS mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🎨</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">Seni Rupa</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran Seni Rupa mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🇬🇧</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">Bahasa Inggris</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran Bahasa Inggris mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-400">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🗣️</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">Bahasa Jawa</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran Bahasa Jawa mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
-          </div>
-        </div>
+      <div class="space-y-4">
+       <div class="flex justify-between py-3 border-b border-theme"><span class="text-secondary">Nama Lengkap</span> <span id="full-name" class="font-medium text-primary">Tisna Dwi Cahyono, S.Pd</span>
+       </div>
+       <div class="flex justify-between py-3 border-b border-theme"><span class="text-secondary">Jabatan</span> <span id="position" class="font-medium text-primary">Guru Kelas 5</span>
+       </div>
+       <div class="flex justify-between py-3"><span class="text-secondary">Sekolah</span> <span id="school" class="font-medium text-primary">SD Negeri Kunjang 2 Kec. Kunjang Kab. Kediri</span>
+       </div>
       </div>
-    </section>
-
-    <!-- Buku Siswa Section -->
-    <section id="buku" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 animate-fade-in-up">
-          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Buku Siswa</h2>
-          <p class="text-secondary mt-6">Koleksi buku panduan belajar siswa</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-100">
-            <div class="h-40 bg-gradient-to-br from-amber-700 to-amber-900 flex items-center justify-center"><span class="text-6xl">🇮🇩</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Pendidikan Pancasila</h3>
-              <p class="text-secondary text-sm mb-3">Kelas 1-6</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-100">
-            <div class="h-40 bg-gradient-to-br from-green-700 to-green-900 flex items-center justify-center"><span class="text-6xl">📖</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Bahasa Indonesia</h3>
-              <p class="text-secondary text-sm mb-3">Edisi Terbaru</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-200">
-            <div class="h-40 bg-gradient-to-br from-orange-700 to-orange-900 flex items-center justify-center"><span class="text-6xl">🔢</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Matematika</h3>
-              <p class="text-secondary text-sm mb-3">Edisi Terbaru</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-200">
-            <div class="h-40 bg-gradient-to-br from-purple-700 to-purple-900 flex items-center justify-center"><span class="text-6xl">🔬</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">IPAS</h3>
-              <p class="text-secondary text-sm mb-3">Edisi Terbaru</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-300">
-            <div class="h-40 bg-gradient-to-br from-pink-700 to-pink-900 flex items-center justify-center"><span class="text-6xl">🎨</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Seni Rupa</h3>
-              <p class="text-secondary text-sm mb-3">Edisi Terbaru</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-300">
-            <div class="h-40 bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center"><span class="text-6xl">🇬🇧</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Bahasa Inggris</h3>
-              <p class="text-secondary text-sm mb-3">Edisi Terbaru</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-400">
-            <div class="h-40 bg-gradient-to-br from-teal-700 to-teal-900 flex items-center justify-center"><span class="text-6xl">🗣️</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Bahasa Jawa</h3>
-              <p class="text-secondary text-sm mb-3">Edisi Terbaru</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
-            </div>
-          </div>
-        </div>
+     </div>
+    </div>
+   </section><!-- Modul Ajar Section -->
+   <section id="modul" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12 animate-fade-in-up">
+      <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Modul Ajar</h2>
+      <p class="text-secondary mt-6">Pembelajaran Mendalam</p>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
+       <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🇮🇩</span>
+       </div>
+       <h3 class="text-lg font-bold text-primary mb-2">Pendidikan Pancasila</h3>
+       <p class="text-secondary text-sm mb-4">Modul pembelajaran Pancasila mendalam</p><button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
       </div>
-    </section>
-
-    <!-- Materi Pembelajaran Section -->
-    <section id="materi" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 animate-fade-in-up">
-          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Materi Pembelajaran</h2>
-          <p class="text-secondary mt-6">Kumpulan materi belajar per mata pelajaran</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🇮🇩</span></div>
-              <div class="flex-1">
-                <h3 class="font-bold text-primary mb-2">Pendidikan Pancasila</h3>
-                <span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">12 File</span>
-              </div>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">📖</span></div>
-              <div class="flex-1">
-                <h3 class="font-bold text-primary mb-2">Bahasa Indonesia</h3>
-                <span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">15 File</span>
-              </div>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🔢</span></div>
-              <div class="flex-1">
-                <h3 class="font-bold text-primary mb-2">Matematika</h3>
-                <span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">18 File</span>
-              </div>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🔬</span></div>
-              <div class="flex-1">
-                <h3 class="font-bold text-primary mb-2">IPAS</h3>
-                <span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">14 File</span>
-              </div>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎨</span></div>
-              <div class="flex-1">
-                <h3 class="font-bold text-primary mb-2">Seni Rupa</h3>
-                <span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">10 File</span>
-              </div>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🇬🇧</span></div>
-              <div class="flex-1">
-                <h3 class="font-bold text-primary mb-2">Bahasa Inggris</h3>
-                <span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">12 File</span>
-              </div>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-400">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🗣️</span></div>
-              <div class="flex-1">
-                <h3 class="font-bold text-primary mb-2">Bahasa Jawa</h3>
-                <span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">10 File</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
+       <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">📖</span>
+       </div>
+       <h3 class="text-lg font-bold text-primary mb-2">Bahasa Indonesia</h3>
+       <p class="text-secondary text-sm mb-4">Modul pembelajaran Bahasa Indonesia mendalam</p><button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
       </div>
-    </section>
-
-    <!-- Video Pembelajaran Section -->
-    <section id="video" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 animate-fade-in-up">
-          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Video Pembelajaran</h2>
-          <p class="text-secondary mt-6">Belajar lebih menyenangkan dengan video interaktif</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-100">
-            <div class="relative h-44 bg-gradient-to-br from-amber-700 to-amber-900 flex items-center justify-center">
-              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
-                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">10:25</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Pendidikan Pancasila</h3>
-              <p class="text-secondary text-sm">Pembelajaran interaktif</p>
-            </div>
-          </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-100">
-            <div class="relative h-44 bg-gradient-to-br from-green-700 to-green-900 flex items-center justify-center">
-              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
-                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">15:30</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Bahasa Indonesia</h3>
-              <p class="text-secondary text-sm">Pembelajaran interaktif</p>
-            </div>
-          </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-200">
-            <div class="relative h-44 bg-gradient-to-br from-orange-700 to-orange-900 flex items-center justify-center">
-              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
-                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">12:45</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Matematika</h3>
-              <p class="text-secondary text-sm">Pembelajaran interaktif</p>
-            </div>
-          </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-200">
-            <div class="relative h-44 bg-gradient-to-br from-purple-700 to-purple-900 flex items-center justify-center">
-              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
-                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">18:15</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">IPAS</h3>
-              <p class="text-secondary text-sm">Pembelajaran interaktif</p>
-            </div>
-          </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-300">
-            <div class="relative h-44 bg-gradient-to-br from-pink-700 to-pink-900 flex items-center justify-center">
-              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
-                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">14:20</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Seni Rupa</h3>
-              <p class="text-secondary text-sm">Pembelajaran interaktif</p>
-            </div>
-          </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-300">
-            <div class="relative h-44 bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center">
-              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
-                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">11:50</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Bahasa Inggris</h3>
-              <p class="text-secondary text-sm">Pembelajaran interaktif</p>
-            </div>
-          </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-400">
-            <div class="relative h-44 bg-gradient-to-br from-teal-700 to-teal-900 flex items-center justify-center">
-              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
-                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">13:40</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Bahasa Jawa</h3>
-              <p class="text-secondary text-sm">Pembelajaran interaktif</p>
-            </div>
-          </div>
-        </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
+       <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🔢</span>
+       </div>
+       <h3 class="text-lg font-bold text-primary mb-2">Matematika</h3>
+       <p class="text-secondary text-sm mb-4">Modul pembelajaran Matematika mendalam</p><button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
       </div>
-    </section>
-
-    <!-- Latihan Soal Section -->
-    <section id="latihan" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 animate-fade-in-up">
-          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Latihan Soal</h2>
-          <p class="text-secondary mt-6">Asah kemampuanmu dengan latihan soal beragam</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">🇮🇩</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">50 Soal</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Pendidikan Pancasila</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⏱️ 30 menit</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">📖</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">50 Soal</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Bahasa Indonesia</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⏱️ 30 menit</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">🔢</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">60 Soal</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Matematika</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⏱️ 45 menit</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">🔬</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">55 Soal</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">IPAS</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⏱️ 40 menit</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">🎨</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">30 Soal</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Seni Rupa</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⏱️ 25 menit</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">🇬🇧</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">45 Soal</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Bahasa Inggris</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⏱️ 35 menit</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-400">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">🗣️</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">40 Soal</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Bahasa Jawa</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⏱️ 30 menit</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
-            </div>
-          </div>
-        </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
+       <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🔬</span>
+       </div>
+       <h3 class="text-lg font-bold text-primary mb-2">IPAS</h3>
+       <p class="text-secondary text-sm mb-4">Modul pembelajaran IPAS mendalam</p><button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
       </div>
-    </section>
-
-    <!-- Game Interaktif Section -->
-    <section id="game" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 animate-fade-in-up">
-          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Game Interaktif</h2>
-          <p class="text-secondary mt-6">Belajar menjadi lebih seru dan menyenangkan</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">🎯</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">50 Poin</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Kuis Pancasila</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⭐ Mudah</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">📚</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">75 Poin</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Tebak Kata Bahasa</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⭐⭐ Sedang</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">🔢</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">100 Poin</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Hitung Cepat</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⭐⭐⭐ Sulit</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">🌍</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">80 Poin</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Jelajahi IPAS</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⭐⭐ Sedang</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">🎨</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">60 Poin</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Lukis &amp; Tebak</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⭐ Mudah</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">🇬🇧</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">70 Poin</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Bahasa Inggris Match</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⭐⭐ Sedang</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
-            </div>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-400">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-3xl">🗣️</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">65 Poin</span>
-            </div>
-            <h3 class="font-bold text-primary mb-2">Bahasa Jawa Quiz</h3>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-secondary">⭐⭐ Sedang</span>
-              <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
-            </div>
-          </div>
-        </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
+       <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🎨</span>
+       </div>
+       <h3 class="text-lg font-bold text-primary mb-2">Seni Rupa</h3>
+       <p class="text-secondary text-sm mb-4">Modul pembelajaran Seni Rupa mendalam</p><button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
       </div>
-    </section>
-
-    <!-- Galeri Kegiatan Section -->
-    <section id="galeri" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 animate-fade-in-up">
-          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Galeri Kegiatan</h2>
-          <p class="text-secondary mt-6">Dokumentasi momen berharga bersama siswa</p>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-100 group cursor-pointer">
-            <div class="w-full h-full bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">🎓</span></div>
-          </div>
-          <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-100 group cursor-pointer">
-            <div class="w-full h-full bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">👨‍🎓</span></div>
-          </div>
-          <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-200 group cursor-pointer">
-            <div class="w-full h-full bg-gradient-to-br from-yellow-600 to-orange-700 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">🎨</span></div>
-          </div>
-          <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-200 group cursor-pointer">
-            <div class="w-full h-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">🎭</span></div>
-          </div>
-          <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-300 group cursor-pointer">
-            <div class="w-full h-full bg-gradient-to-br from-pink-600 to-pink-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">🎪</span></div>
-          </div>
-          <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-300 group cursor-pointer">
-            <div class="w-full h-full bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">🏃</span></div>
-          </div>
-          <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-400 group cursor-pointer">
-            <div class="w-full h-full bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">🎉</span></div>
-          </div>
-          <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-400 group cursor-pointer">
-            <div class="w-full h-full bg-gradient-to-br from-indigo-600 to-indigo-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">📚</span></div>
-          </div>
-        </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
+       <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🇬🇧</span>
+       </div>
+       <h3 class="text-lg font-bold text-primary mb-2">Bahasa Inggris</h3>
+       <p class="text-secondary text-sm mb-4">Modul pembelajaran Bahasa Inggris mendalam</p><button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
       </div>
-    </section>
-
-    <!-- Kontak Section -->
-    <section id="kontak" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 animate-fade-in-up">
-          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Kontak</h2>
-          <p class="text-secondary mt-6">Hubungi saya untuk informasi lebih lanjut</p>
-        </div>
-        <div class="max-w-2xl mx-auto">
-          <div class="card rounded-2xl p-6 md:p-8 animate-fade-in-up delay-100">
-            <div class="grid gap-6 mb-8">
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-xl">📧</span></div>
-                <div>
-                  <p class="text-sm text-secondary">Email</p>
-                  <p id="contact-email" class="font-medium text-primary">tisnadwi@gmail.com</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-xl">📍</span></div>
-                <div>
-                  <p class="text-sm text-secondary">Sekolah</p>
-                  <p id="contact-school" class="font-medium text-primary">SD Negeri Kunjang 2 Kec. Kunjang Kab. Kediri</p>
-                </div>
-              </div>
-            </div>
-            <div class="pt-6 border-t border-theme">
-              <p class="text-center text-secondary mb-4">Ikuti Media Sosial Saya</p>
-              <div class="flex justify-center gap-4">
-                <button class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center hover:opacity-80 transition-opacity">
-                  <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </button>
-                <button class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center hover:opacity-80 transition-opacity">
-                  <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </button>
-                <button class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center hover:opacity-80 transition-opacity">
-                  <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-400">
+       <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🗣️</span>
+       </div>
+       <h3 class="text-lg font-bold text-primary mb-2">Bahasa Jawa</h3>
+       <p class="text-secondary text-sm mb-4">Modul pembelajaran Bahasa Jawa mendalam</p><button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
       </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="footer" class="py-8 bg-primary border-t border-theme section-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
-          <p id="footer-quote" class="text-secondary mb-2 italic">"Tulislah yang kamu baca, Bacalah yang kamu tulis."</p>
-          <p class="text-sm text-secondary">© <span id="current-year"></span> Tisna Dwi Cahyono. Hak Cipta Dilindungi.</p>
-        </div>
+     </div>
+    </div>
+   </section><!-- Buku Siswa Section -->
+   <section id="buku" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12 animate-fade-in-up">
+      <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Buku Siswa</h2>
+      <p class="text-secondary mt-6">Koleksi buku panduan belajar siswa</p>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-100">
+       <div class="h-40 bg-gradient-to-br from-amber-700 to-amber-900 flex items-center justify-center"><span class="text-6xl">🇮🇩</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">Pendidikan Pancasila</h3>
+        <p class="text-secondary text-sm mb-3">Kelas 1-6</p><button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+       </div>
       </div>
-    </footer>
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-100">
+       <div class="h-40 bg-gradient-to-br from-green-700 to-green-900 flex items-center justify-center"><span class="text-6xl">📖</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">Bahasa Indonesia</h3>
+        <p class="text-secondary text-sm mb-3">Edisi Terbaru</p><button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-200">
+       <div class="h-40 bg-gradient-to-br from-orange-700 to-orange-900 flex items-center justify-center"><span class="text-6xl">🔢</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">Matematika</h3>
+        <p class="text-secondary text-sm mb-3">Edisi Terbaru</p><button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-200">
+       <div class="h-40 bg-gradient-to-br from-purple-700 to-purple-900 flex items-center justify-center"><span class="text-6xl">🔬</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">IPAS</h3>
+        <p class="text-secondary text-sm mb-3">Edisi Terbaru</p><button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-300">
+       <div class="h-40 bg-gradient-to-br from-pink-700 to-pink-900 flex items-center justify-center"><span class="text-6xl">🎨</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">Seni Rupa</h3>
+        <p class="text-secondary text-sm mb-3">Edisi Terbaru</p><button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-300">
+       <div class="h-40 bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center"><span class="text-6xl">🇬🇧</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">Bahasa Inggris</h3>
+        <p class="text-secondary text-sm mb-3">Edisi Terbaru</p><button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-400">
+       <div class="h-40 bg-gradient-to-br from-teal-700 to-teal-900 flex items-center justify-center"><span class="text-6xl">🗣️</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">Bahasa Jawa</h3>
+        <p class="text-secondary text-sm mb-3">Edisi Terbaru</p><button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Materi Pembelajaran Section -->
+   <section id="materi" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12 animate-fade-in-up">
+      <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Materi Pembelajaran</h2>
+      <p class="text-secondary mt-6">Kumpulan materi belajar per mata pelajaran</p>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🇮🇩</span>
+        </div>
+        <div class="flex-1">
+         <h3 class="font-bold text-primary mb-2">Pendidikan Pancasila</h3>
+         <div class="flex gap-2"><span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">12 File</span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">📖</span>
+        </div>
+        <div class="flex-1">
+         <h3 class="font-bold text-primary mb-2">Bahasa Indonesia</h3>
+         <div class="flex gap-2"><span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">15 File</span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🔢</span>
+        </div>
+        <div class="flex-1">
+         <h3 class="font-bold text-primary mb-2">Matematika</h3>
+         <div class="flex gap-2"><span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">18 File</span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🔬</span>
+        </div>
+        <div class="flex-1">
+         <h3 class="font-bold text-primary mb-2">IPAS</h3>
+         <div class="flex gap-2"><span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">14 File</span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🎨</span>
+        </div>
+        <div class="flex-1">
+         <h3 class="font-bold text-primary mb-2">Seni Rupa</h3>
+         <div class="flex gap-2"><span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">10 File</span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🇬🇧</span>
+        </div>
+        <div class="flex-1">
+         <h3 class="font-bold text-primary mb-2">Bahasa Inggris</h3>
+         <div class="flex gap-2"><span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">12 File</span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-400">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🗣️</span>
+        </div>
+        <div class="flex-1">
+         <h3 class="font-bold text-primary mb-2">Bahasa Jawa</h3>
+         <div class="flex gap-2"><span class="px-2 py-1 rounded text-xs font-medium bg-secondary text-secondary">10 File</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Video Pembelajaran Section -->
+   <section id="video" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12 animate-fade-in-up">
+      <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Video Pembelajaran</h2>
+      <p class="text-secondary mt-6">Belajar lebih menyenangkan dengan video interaktif</p>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-100">
+       <div class="relative h-44 bg-gradient-to-br from-amber-700 to-amber-900 flex items-center justify-center">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
+         <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+         </svg>
+        </div><span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">10:25</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">Pendidikan Pancasila</h3>
+        <p class="text-secondary text-sm">Pembelajaran interaktif</p>
+       </div>
+      </div>
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-100">
+       <div class="relative h-44 bg-gradient-to-br from-green-700 to-green-900 flex items-center justify-center">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
+         <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+         </svg>
+        </div><span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">15:30</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">Bahasa Indonesia</h3>
+        <p class="text-secondary text-sm">Pembelajaran interaktif</p>
+       </div>
+      </div>
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-200">
+       <div class="relative h-44 bg-gradient-to-br from-orange-700 to-orange-900 flex items-center justify-center">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
+         <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+         </svg>
+        </div><span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">12:45</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">Matematika</h3>
+        <p class="text-secondary text-sm">Pembelajaran interaktif</p>
+       </div>
+      </div>
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-200">
+       <div class="relative h-44 bg-gradient-to-br from-purple-700 to-purple-900 flex items-center justify-center">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
+         <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+         </svg>
+        </div><span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">18:15</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">IPAS</h3>
+        <p class="text-secondary text-sm">Pembelajaran interaktif</p>
+       </div>
+      </div>
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-300">
+       <div class="relative h-44 bg-gradient-to-br from-pink-700 to-pink-900 flex items-center justify-center">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
+         <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+         </svg>
+        </div><span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">14:20</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">Seni Rupa</h3>
+        <p class="text-secondary text-sm">Pembelajaran interaktif</p>
+       </div>
+      </div>
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-300">
+       <div class="relative h-44 bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
+         <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+         </svg>
+        </div><span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">11:50</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">Bahasa Inggris</h3>
+        <p class="text-secondary text-sm">Pembelajaran interaktif</p>
+       </div>
+      </div>
+      <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-400">
+       <div class="relative h-44 bg-gradient-to-br from-teal-700 to-teal-900 flex items-center justify-center">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
+         <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+         </svg>
+        </div><span class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 rounded text-white text-xs">13:40</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-bold text-primary mb-1">Bahasa Jawa</h3>
+        <p class="text-secondary text-sm">Pembelajaran interaktif</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Latihan Soal Section -->
+   <section id="latihan" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12 animate-fade-in-up">
+      <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Latihan Soal</h2>
+      <p class="text-secondary mt-6">Asah kemampuanmu dengan latihan soal beragam</p>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">🇮🇩</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">50 Soal</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Pendidikan Pancasila</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⏱️ 30 menit</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">📖</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">50 Soal</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Bahasa Indonesia</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⏱️ 30 menit</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">🔢</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">60 Soal</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Matematika</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⏱️ 45 menit</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">🔬</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">55 Soal</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">IPAS</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⏱️ 40 menit</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">🎨</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">30 Soal</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Seni Rupa</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⏱️ 25 menit</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">🇬🇧</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">45 Soal</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Bahasa Inggris</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⏱️ 35 menit</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-400">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">🗣️</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">40 Soal</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Bahasa Jawa</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⏱️ 30 menit</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mulai</button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Game Interaktif Section -->
+   <section id="game" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12 animate-fade-in-up">
+      <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Game Interaktif</h2>
+      <p class="text-secondary mt-6">Belajar menjadi lebih seru dan menyenangkan</p>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">🎯</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">50 Poin</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Kuis Pancasila</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⭐ Mudah</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">📚</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">75 Poin</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Tebak Kata Bahasa</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⭐⭐ Sedang</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">🔢</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">100 Poin</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Hitung Cepat</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⭐⭐⭐ Sulit</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">🌍</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">80 Poin</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Jelajahi IPAS</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⭐⭐ Sedang</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">🎨</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">60 Poin</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Lukis &amp; Tebak</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⭐ Mudah</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">🇬🇧</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">70 Poin</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Bahasa Inggris Match</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⭐⭐ Sedang</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
+       </div>
+      </div>
+      <div class="card rounded-2xl p-6 animate-fade-in-up delay-400">
+       <div class="flex items-center justify-between mb-4"><span class="text-3xl">🗣️</span> <span class="px-3 py-1 rounded-full text-xs font-bold primary-dark text-white">65 Poin</span>
+       </div>
+       <h3 class="font-bold text-primary mb-2">Bahasa Jawa Quiz</h3>
+       <div class="flex items-center justify-between"><span class="text-sm text-secondary">⭐⭐ Sedang</span> <button class="btn-primary px-4 py-2 rounded-lg font-medium text-sm text-white">Mainkan</button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Galeri Kegiatan Section -->
+   <section id="galeri" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12 animate-fade-in-up">
+      <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Galeri Kegiatan</h2>
+      <p class="text-secondary mt-6">Dokumentasi momen berharga bersama siswa</p>
+     </div>
+     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-100 group cursor-pointer">
+       <div class="w-full h-full bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">🎓</span>
+       </div>
+      </div>
+      <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-100 group cursor-pointer">
+       <div class="w-full h-full bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">👨‍🎓</span>
+       </div>
+      </div>
+      <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-200 group cursor-pointer">
+       <div class="w-full h-full bg-gradient-to-br from-yellow-600 to-orange-700 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">🎨</span>
+       </div>
+      </div>
+      <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-200 group cursor-pointer">
+       <div class="w-full h-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">🎭</span>
+       </div>
+      </div>
+      <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-300 group cursor-pointer">
+       <div class="w-full h-full bg-gradient-to-br from-pink-600 to-pink-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">🎪</span>
+       </div>
+      </div>
+      <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-300 group cursor-pointer">
+       <div class="w-full h-full bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">🏃</span>
+       </div>
+      </div>
+      <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-400 group cursor-pointer">
+       <div class="w-full h-full bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">🎉</span>
+       </div>
+      </div>
+      <div class="card rounded-xl overflow-hidden aspect-square animate-fade-in-up delay-400 group cursor-pointer">
+       <div class="w-full h-full bg-gradient-to-br from-indigo-600 to-indigo-800 flex items-center justify-center group-hover:scale-105 transition-transform"><span class="text-5xl">📚</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Kontak Section -->
+   <section id="kontak" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-12 animate-fade-in-up">
+      <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Kontak</h2>
+      <p class="text-secondary mt-6">Hubungi saya untuk informasi lebih lanjut</p>
+     </div>
+     <div class="max-w-2xl mx-auto">
+      <div class="card rounded-2xl p-6 md:p-8 animate-fade-in-up delay-100">
+       <div class="grid gap-6 mb-8">
+        <div class="flex items-center gap-4">
+         <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-xl">📧</span>
+         </div>
+         <div>
+          <p class="text-sm text-secondary">Email</p>
+          <p id="contact-email" class="font-medium text-primary">tisnadwi@gmail.com</p>
+         </div>
+        </div>
+        <div class="flex items-center gap-4">
+         <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-xl">📍</span>
+         </div>
+         <div>
+          <p class="text-sm text-secondary">Sekolah</p>
+          <p id="contact-school" class="font-medium text-primary">SD Negeri Kunjang 2 Kec. Kunjang Kab. Kediri</p>
+         </div>
+        </div>
+       </div><!-- Social Media -->
+       <div class="pt-6 border-t border-theme">
+        <p class="text-center text-secondary mb-4">Ikuti Media Sosial Saya</p>
+        <div class="flex justify-center gap-4"><button class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center hover:opacity-80 transition-opacity">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+          </svg></button> <button class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center hover:opacity-80 transition-opacity">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg></button> <button class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center hover:opacity-80 transition-opacity">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+          </svg></button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer id="footer" class="py-8 bg-primary border-t border-theme section-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center">
+      <p id="footer-quote" class="text-secondary mb-2 italic">"Tulislah yang kamu baca, Bacalah yang kamu tulis."</p>
+      <p class="text-sm text-secondary">© <span id="current-year"></span> Tisna Dwi Cahyono. Hak Cipta Dilindungi.</p>
+     </div>
+    </div>
+   </footer>
   </div>
-
   <script>
-    (function() {
-      // === KONFIGURASI ===
-      const defaultConfig = {
-        full_name: 'Tisna Dwi Cahyono, S.Pd',
-        position: 'Guru Kelas 5',
-        school: 'SD Negeri Kunjang 2 Kec. Kunjang Kab. Kediri',
-        email: 'tisnadwi@gmail.com',
-        welcome_text: 'Selamat datang di Arsip Digital Guru!',
-        footer_quote: 'Tulislah yang kamu baca, Bacalah yang kamu tulis.'
-      };
-
-      // === ELEMEN ===
-      const sections = document.querySelectorAll('section, footer');
-      const footerEl = document.getElementById('footer');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const menuToggle = document.getElementById('menu-toggle');
-      const menuIcon = document.getElementById('menu-icon');
-      const closeIcon = document.getElementById('close-icon');
-      const themeToggle = document.getElementById('theme-toggle');
+    // Default configuration
+    const defaultConfig = {
+      teacher_name: 'Tisna Dwi Cahyono',
+      full_name: 'Tisna Dwi Cahyono, S.Pd',
+      position: 'Guru Kelas 5',
+      school: 'SD Negeri Kunjang 2 Kec. Kunjang Kab. Kediri',
+      email: 'tisnadwi@gmail.com',
+      welcome_text: 'Selamat datang di Arsip Digital Guru!',
+      footer_quote: 'Tulislah yang kamu baca, Bacalah yang kamu tulis.',
+      primary_dark: '#5C4033',
+      primary_light: '#C19A6B',
+      font_family: 'Lato',
+      font_size: 16
+    };
+    
+    let config = { ...defaultConfig };
+    
+    // Show specific section
+    function showSection(sectionId) {
+      // Hide all sections
+      document.querySelectorAll('section, footer').forEach(el => {
+        el.classList.add('section-hidden');
+        el.classList.remove('section-visible');
+      });
+      
+      // Show target section
+      const targetSection = document.getElementById(sectionId);
+      if (targetSection) {
+        targetSection.classList.remove('section-hidden');
+        targetSection.classList.add('section-visible');
+      }
+      
+      // Show footer on specific sections
+      const footerSections = ['profil', 'modul', 'buku', 'materi', 'video', 'latihan', 'game', 'galeri', 'kontak'];
+      if (footerSections.includes(sectionId)) {
+        document.getElementById('footer').classList.remove('section-hidden');
+        document.getElementById('footer').classList.add('section-visible');
+      }
+      
+      closeMobileMenu();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // Theme handling
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+        updateThemeIcons(true);
+      } else {
+        document.documentElement.classList.remove('dark');
+        updateThemeIcons(false);
+      }
+    }
+    
+    function updateThemeIcons(isDark) {
       const sunIcon = document.getElementById('sun-icon');
       const moonIcon = document.getElementById('moon-icon');
-
-      // === FUNGSI NAVIGASI ===
-      window.showSection = function(sectionId) {
-        sections.forEach(el => {
-          el.classList.add('section-hidden');
-          el.classList.remove('section-visible');
+      if (isDark) {
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+      } else {
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      }
+    }
+    
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeIcons(isDark);
+    }
+    
+    // Mobile menu handling
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      
+      mobileMenu.classList.toggle('open');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    }
+    
+    // Close mobile menu
+    function closeMobileMenu() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      
+      mobileMenu.classList.remove('open');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+    }
+    
+    // Update year
+    function updateYear() {
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    }
+    
+    // Animation on scroll
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-fade-in-up');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
         });
-        const target = document.getElementById(sectionId);
-        if (target) {
-          target.classList.remove('section-hidden');
-          target.classList.add('section-visible');
+      }, { threshold: 0.1 });
+      
+      elements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        observer.observe(el);
+      });
+    }
+    
+    // onConfigChange function
+    async function onConfigChange(cfg) {
+      config = { ...defaultConfig, ...cfg };
+      
+      // Update welcome text
+      const heroWelcome = document.getElementById('hero-welcome');
+      if (heroWelcome) heroWelcome.textContent = config.welcome_text || defaultConfig.welcome_text;
+      
+      // Update footer quote
+      const footerQuote = document.getElementById('footer-quote');
+      if (footerQuote) footerQuote.textContent = `"${config.footer_quote || defaultConfig.footer_quote}"`;
+      
+      // Update profile information
+      const fullName = document.getElementById('full-name');
+      if (fullName) fullName.textContent = config.full_name || defaultConfig.full_name;
+      
+      const position = document.getElementById('position');
+      if (position) position.textContent = config.position || defaultConfig.position;
+      
+      const school = document.getElementById('school');
+      if (school) school.textContent = config.school || defaultConfig.school;
+      
+      const email = document.getElementById('contact-email');
+      if (email) email.textContent = config.email || defaultConfig.email;
+      
+      const contactSchool = document.getElementById('contact-school');
+      if (contactSchool) contactSchool.textContent = config.school || defaultConfig.school;
+    }
+    
+    // Map to capabilities
+    function mapToCapabilities(cfg) {
+      return {
+        recolorables: [
+          {
+            get: () => cfg.primary_dark || defaultConfig.primary_dark,
+            set: (value) => {
+              cfg.primary_dark = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ primary_dark: value });
+            }
+          },
+          {
+            get: () => cfg.primary_light || defaultConfig.primary_light,
+            set: (value) => {
+              cfg.primary_light = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ primary_light: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => cfg.font_family || defaultConfig.font_family,
+          set: (value) => {
+            cfg.font_family = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => cfg.font_size || defaultConfig.font_size,
+          set: (value) => {
+            cfg.font_size = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_size: value });
+          }
         }
-        const footerSections = ['profil', 'modul', 'buku', 'materi', 'video', 'latihan', 'game', 'galeri', 'kontak'];
-        if (footerSections.includes(sectionId)) {
-          footerEl.classList.remove('section-hidden');
-          footerEl.classList.add('section-visible');
-        }
-        closeMobileMenu();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       };
-
-      // === TEMA ===
-      function initTheme() {
-        const saved = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isDark = saved === 'dark' || (!saved && prefersDark);
-        document.documentElement.classList.toggle('dark', isDark);
-        updateThemeIcons(isDark);
-      }
-      function updateThemeIcons(isDark) {
-        if (sunIcon && moonIcon) {
-          sunIcon.classList.toggle('hidden', !isDark);
-          moonIcon.classList.toggle('hidden', isDark);
-        }
-      }
-      function toggleTheme() {
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        updateThemeIcons(isDark);
-      }
-
-      // === MOBILE MENU ===
-      function toggleMobileMenu() {
-        if (!mobileMenu || !menuIcon || !closeIcon) return;
-        mobileMenu.classList.toggle('open');
-        menuIcon.classList.toggle('hidden');
-        closeIcon.classList.toggle('hidden');
-      }
-      function closeMobileMenu() {
-        if (mobileMenu && menuIcon && closeIcon) {
-          mobileMenu.classList.remove('open');
-          menuIcon.classList.remove('hidden');
-          closeIcon.classList.add('hidden');
-        }
-      }
-
-      // === UPDATE KONTEN DINAMIS ===
-      function updateContent() {
-        const heroWelcome = document.getElementById('hero-welcome');
-        if (heroWelcome) heroWelcome.textContent = defaultConfig.welcome_text;
-        const footerQuote = document.getElementById('footer-quote');
-        if (footerQuote) footerQuote.textContent = `"${defaultConfig.footer_quote}"`;
-        const fullName = document.getElementById('full-name');
-        if (fullName) fullName.textContent = defaultConfig.full_name;
-        const position = document.getElementById('position');
-        if (position) position.textContent = defaultConfig.position;
-        const school = document.getElementById('school');
-        if (school) school.textContent = defaultConfig.school;
-        const contactEmail = document.getElementById('contact-email');
-        if (contactEmail) contactEmail.textContent = defaultConfig.email;
-        const contactSchool = document.getElementById('contact-school');
-        if (contactSchool) contactSchool.textContent = defaultConfig.school;
-        const yearSpan = document.getElementById('current-year');
-        if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-      }
-
-      // === EVENT LISTENERS ===
-      if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
-      if (menuToggle) menuToggle.addEventListener('click', toggleMobileMenu);
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    }
+    
+    // Map to edit panel values
+    function mapToEditPanelValues(cfg) {
+      return new Map([
+        ['full_name', cfg.full_name || defaultConfig.full_name],
+        ['position', cfg.position || defaultConfig.position],
+        ['school', cfg.school || defaultConfig.school],
+        ['email', cfg.email || defaultConfig.email],
+        ['welcome_text', cfg.welcome_text || defaultConfig.welcome_text],
+        ['footer_quote', cfg.footer_quote || defaultConfig.footer_quote]
+      ]);
+    }
+    
+    // Initialize
+    function init() {
+      initTheme();
+      updateYear();
+      animateOnScroll();
+      
+      // Event listeners
+      document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+      document.getElementById('menu-toggle').addEventListener('click', toggleMobileMenu);
+      
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
         if (!localStorage.getItem('theme')) {
-          document.documentElement.classList.toggle('dark', e.matches);
-          updateThemeIcons(e.matches);
+          if (e.matches) {
+            document.documentElement.classList.add('dark');
+            updateThemeIcons(true);
+          } else {
+            document.documentElement.classList.remove('dark');
+            updateThemeIcons(false);
+          }
         }
       });
-
-      // === INIT ===
-      initTheme();
-      updateContent();
-    })();
+      
+      // Initialize Element SDK
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues
+        });
+      } else {
+        onConfigChange(defaultConfig);
+      }
+    }
+    
+    init();
   </script>
-</body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cc4736071e4fdfa',t:'MTc3MDgxOTI0Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
