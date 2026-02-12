@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tisna Dwi Cahyono - Portofolio Guru</title>
-  <!-- Tailwind CDN (tetap) -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts (tetap) -->
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
@@ -55,6 +57,7 @@
     .primary-dark-text { color: var(--primary-dark); }
     .primary-light { background-color: var(--primary-light); }
     .primary-light-text { color: var(--primary-light); }
+    
     .card {
       background-color: var(--bg-secondary);
       border: 1px solid var(--border-color);
@@ -65,6 +68,7 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.3);
       border-color: var(--primary-light);
     }
+    
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -77,7 +81,8 @@
     .delay-300 { animation-delay: 0.3s; }
     .delay-400 { animation-delay: 0.4s; }
     .delay-500 { animation-delay: 0.5s; }
-    /* Navigasi gaya asli – underline */
+    
+    /* Navigasi underline asli */
     .nav-link {
       position: relative;
       transition: color 0.2s ease;
@@ -100,6 +105,7 @@
     .nav-link:hover {
       color: var(--primary-dark);
     }
+    
     .mobile-menu {
       max-height: 0;
       overflow: hidden;
@@ -108,6 +114,7 @@
     .mobile-menu.open {
       max-height: 800px;
     }
+    
     .section-title {
       position: relative;
       display: inline-block;
@@ -123,6 +130,7 @@
       background: linear-gradient(90deg, var(--primary-light), var(--primary-light) 50%, transparent 50%);
       border-radius: 2px;
     }
+    
     .btn-primary {
       background-color: var(--primary-dark);
       color: white;
@@ -132,15 +140,15 @@
       background-color: var(--primary-darker);
       transform: scale(1.02);
     }
-    .btn-secondary {
-      background-color: var(--primary-light);
-      color: var(--primary-darker);
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--primary-dark);
+      color: var(--primary-dark);
       transition: all 0.2s ease;
-      font-weight: 600;
     }
-    .btn-secondary:hover {
-      background-color: var(--primary-lighter);
-      transform: scale(1.02);
+    .btn-outline:hover {
+      background-color: var(--primary-dark);
+      color: white;
     }
     .section-hidden { display: none !important; }
     .section-visible { display: block; }
@@ -152,12 +160,52 @@
       transform: translateY(-8px);
       box-shadow: 0 16px 50px rgba(0,0,0,0.4);
     }
+    
+    /* Ikon lingkaran besar untuk kategori */
+    .icon-category {
+      width: 80px;
+      height: 80px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, var(--primary-dark), var(--primary-darker));
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      margin-bottom: 12px;
+    }
+    .icon-category i {
+      font-size: 40px;
+      color: white;
+    }
+    /* Ikon sedang untuk mata pelajaran */
+    .icon-subject {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .icon-subject i {
+      font-size: 36px;
+      color: white;
+    }
+    /* Warna gradien mapel */
+    .grad-pp { background: linear-gradient(145deg, #DC2626, #991B1B); }
+    .grad-bindo { background: linear-gradient(145deg, #059669, #065F46); }
+    .grad-mat { background: linear-gradient(145deg, #EA580C, #9A3412); }
+    .grad-ipas { background: linear-gradient(145deg, #7C3AED, #5B21B6); }
+    .grad-sr { background: linear-gradient(145deg, #DB2777, #9D174D); }
+    .grad-bing { background: linear-gradient(145deg, #2563EB, #1E40AF); }
+    .grad-bjawa { background: linear-gradient(145deg, #0D9488, #115E59); }
   </style>
   <style>@view-transition { navigation: auto; }</style>
 </head>
 <body class="h-full overflow-auto">
   <div id="app" class="min-h-full">
-    <!-- Navigation – GAYA ASLI (underline) -->
+    <!-- Navigation -->
     <nav id="navbar" class="sticky top-0 z-50 bg-primary border-b border-theme shadow-sm transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
@@ -171,7 +219,7 @@
           <div class="hidden lg:flex items-center gap-1">
             <a href="#home" onclick="showSection('home'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Home</a>
             <a href="#profil" onclick="showSection('profil'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Profil</a>
-            <a href="#modul" onclick="showSection('modul'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Modul Ajar</a>
+            <a href="#perangkat" onclick="showSection('perangkat'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Perangkat Ajar</a>
             <a href="#buku" onclick="showSection('buku'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Buku Siswa</a>
             <a href="#materi" onclick="showSection('materi'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Materi</a>
             <a href="#video" onclick="showSection('video'); return false;" class="nav-link px-3 py-2 text-sm font-medium">Video</a>
@@ -205,7 +253,7 @@
           <div class="py-4 space-y-1">
             <a href="#home" onclick="showSection('home'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">🏠 Home</a>
             <a href="#profil" onclick="showSection('profil'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">👤 Profil Guru</a>
-            <a href="#modul" onclick="showSection('modul'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📚 Modul Ajar</a>
+            <a href="#perangkat" onclick="showSection('perangkat'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📚 Perangkat Ajar</a>
             <a href="#buku" onclick="showSection('buku'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📖 Buku Siswa</a>
             <a href="#materi" onclick="showSection('materi'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">📝 Materi Pembelajaran</a>
             <a href="#video" onclick="showSection('video'); return false;" class="block px-4 py-3 text-sm font-medium text-secondary hover:text-primary hover:bg-secondary rounded-lg transition-colors">🎬 Video Pembelajaran</a>
@@ -221,20 +269,19 @@
     <!-- HERO SECTION -->
     <section id="home" class="relative overflow-hidden bg-primary min-h-screen flex items-center section-visible">
       <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute -top-40 -right-40 w-80 h-80 rounded-full" style="background: radial-gradient(circle, rgba(193, 154, 107, 0.15) 0%, transparent 70%);"></div>
-        <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full" style="background: radial-gradient(circle, rgba(193, 154, 107, 0.1) 0%, transparent 70%);"></div>
-        <div class="absolute top-1/2 left-1/4 w-64 h-64 rounded-full" style="background: radial-gradient(circle, rgba(193, 154, 107, 0.08) 0%, transparent 70%);"></div>
+        <div class="absolute -top-40 -right-40 w-80 h-80 rounded-full" style="background: radial-gradient(circle, rgba(193,154,107,0.15) 0%, transparent 70%);"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full" style="background: radial-gradient(circle, rgba(193,154,107,0.1) 0%, transparent 70%);"></div>
+        <div class="absolute top-1/2 left-1/4 w-64 h-64 rounded-full" style="background: radial-gradient(circle, rgba(193,154,107,0.08) 0%, transparent 70%);"></div>
       </div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
         <div class="text-center max-w-3xl mx-auto">
-          <div class="inline-block mb-8 px-4 py-2 rounded-full animate-fade-in-up" style="background: linear-gradient(135deg, rgba(193, 154, 107, 0.2), rgba(193, 154, 107, 0.1)); border: 1px solid var(--border-color);">
+          <div class="inline-block mb-8 px-4 py-2 rounded-full animate-fade-in-up" style="background: linear-gradient(135deg, rgba(193,154,107,0.2), rgba(193,154,107,0.1)); border: 1px solid var(--border-color);">
             <span class="text-sm font-medium primary-light-text">📚 Portal Pembelajaran Digital</span>
           </div>
           <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
             <span class="primary-dark-text">Arsip Digital</span> <br><span class="primary-light-text">Guru</span>
           </h1>
           <p id="hero-welcome" class="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed text-secondary animate-fade-in-up delay-200">Selamat datang di Arsip Digital Guru!</p>
-          <!-- Feature Cards -->
           <div class="grid sm:grid-cols-3 gap-6 mb-12 animate-fade-in-up delay-300">
             <div class="card rounded-2xl p-8 text-center hover:shadow-2xl feature-card cursor-pointer" onclick="showSection('game'); return false;">
               <div class="text-6xl mb-4 flex justify-center">🎮</div>
@@ -286,129 +333,404 @@
       </div>
     </section>
 
-    <!-- MODUL AJAR SECTION -->
-    <section id="modul" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
+    <!-- ========== PERANGKAT AJAR (HALAMAN UTAMA) ========== -->
+    <section id="perangkat" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 animate-fade-in-up">
-          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Modul Ajar</h2>
-          <p class="text-secondary mt-6">Pembelajaran Mendalam</p>
+          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">📚 Perangkat Ajar</h2>
+          <p class="text-secondary mt-6 text-lg">Klik kategori untuk melihat dokumen</p>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🇮🇩</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">Pendidikan Pancasila</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran Pancasila mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
+
+        <!-- 3 KARTU KATEGORI – Ukuran font diperkecil -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 animate-fade-in-up delay-100">
+          <!-- Capaian Pembelajaran -->
+          <div onclick="showSection('capaian-pembelajaran');" class="card rounded-2xl p-8 flex flex-col items-center text-center cursor-pointer hover:shadow-2xl transition-all">
+            <div class="icon-category bg-gradient-to-br from-amber-600 to-amber-800">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Capaian Pembelajaran</h3>
+            <p class="text-sm text-secondary">7 Mata Pelajaran</p>
+            <span class="mt-4 text-xs text-primary-dark flex items-center gap-1"><i class="fas fa-arrow-right"></i> Klik untuk lihat</span>
           </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">📖</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">Bahasa Indonesia</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran Bahasa Indonesia mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
+          <!-- Tujuan Pembelajaran -->
+          <div onclick="showSection('tujuan-pembelajaran');" class="card rounded-2xl p-8 flex flex-col items-center text-center cursor-pointer hover:shadow-2xl transition-all">
+            <div class="icon-category bg-gradient-to-br from-green-600 to-green-800">
+              <i class="fas fa-location-dot"></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Tujuan Pembelajaran</h3>
+            <p class="text-sm text-secondary">7 Mata Pelajaran</p>
+            <span class="mt-4 text-xs text-primary-dark flex items-center gap-1"><i class="fas fa-arrow-right"></i> Klik untuk lihat</span>
           </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🔢</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">Matematika</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran Matematika mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
+          <!-- Modul Ajar -->
+          <div onclick="showSection('modul-ajar');" class="card rounded-2xl p-8 flex flex-col items-center text-center cursor-pointer hover:shadow-2xl transition-all">
+            <div class="icon-category bg-gradient-to-br from-purple-600 to-purple-800">
+              <i class="fas fa-book"></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Modul Ajar</h3>
+            <p class="text-sm text-secondary">7 Mata Pelajaran</p>
+            <span class="mt-4 text-xs text-primary-dark flex items-center gap-1"><i class="fas fa-arrow-right"></i> Klik untuk lihat</span>
           </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-200">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🔬</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">IPAS</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran IPAS mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🎨</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">Seni Rupa</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran Seni Rupa mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-300">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🇬🇧</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">Bahasa Inggris</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran Bahasa Inggris mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
-          </div>
-          <div class="card rounded-2xl p-6 animate-fade-in-up delay-400">
-            <div class="w-14 h-14 primary-dark rounded-xl flex items-center justify-center mb-4"><span class="text-3xl">🗣️</span></div>
-            <h3 class="text-lg font-bold text-primary mb-2">Bahasa Jawa</h3>
-            <p class="text-secondary text-sm mb-4">Modul pembelajaran Bahasa Jawa mendalam</p>
-            <button class="btn-primary w-full py-2.5 rounded-lg font-medium text-sm text-white">📥 Download</button>
+        </div>
+
+        <!-- DOKUMEN KURIKULUM SATUAN PENDIDIKAN – Sesuai permintaan: warna hitam, tanpa deskripsi, ukuran huruf proporsional -->
+        <div class="mt-12 animate-fade-in-up delay-200">
+          <div class="card rounded-2xl p-8 bg-gradient-to-r from-amber-50 to-amber-100/50 dark:from-amber-900/20 dark:to-amber-800/20 border-2 border-amber-200 dark:border-amber-700">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+              <div class="icon-category bg-amber-600">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="flex-1 text-center md:text-left">
+                <h3 class="text-xl md:text-2xl font-bold text-black dark:text-white mb-2">Dokumen Kurikulum Satuan Pendidikan</h3>
+                <!-- Deskripsi dihapus sesuai permintaan -->
+                <div class="flex gap-3 justify-center md:justify-start">
+                  <button class="btn-primary bg-amber-700 hover:bg-amber-800 px-6 py-2.5 rounded-lg text-sm font-medium"><i class="fas fa-folder-open"></i> Lihat Dokumen</button>
+                  <button class="btn-outline border-amber-700 text-amber-700 hover:bg-amber-700 px-6 py-2.5 rounded-lg text-sm font-medium"><i class="fas fa-download"></i> Download</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- BUKU SISWA SECTION -->
+    <!-- ========== CAPAIAN PEMBELAJARAN (SECTION BARU) ========== -->
+    <section id="capaian-pembelajaran" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="icon-category bg-gradient-to-br from-amber-600 to-amber-800">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-primary">Capaian Pembelajaran</h2>
+          </div>
+          <button onclick="showSection('perangkat');" class="btn-outline px-5 py-2.5 rounded-lg text-sm font-medium flex items-center gap-2">
+            <i class="fas fa-arrow-left"></i> Kembali
+          </button>
+        </div>
+        <p class="text-secondary text-center mb-12">Dokumen Capaian Pembelajaran per mata pelajaran · Kelas V</p>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- 7 MATA PELAJARAN – Ukuran font diperkecil -->
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-pp"><i class="fas fa-flag"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Pend. Pancasila</h3>
+            <p class="text-xs text-secondary mb-3">Capaian Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-bindo"><i class="fas fa-book-open"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Bahasa Indonesia</h3>
+            <p class="text-xs text-secondary mb-3">Capaian Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-mat"><i class="fas fa-calculator"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Matematika</h3>
+            <p class="text-xs text-secondary mb-3">Capaian Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-ipas"><i class="fas fa-flask"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">IPAS</h3>
+            <p class="text-xs text-secondary mb-3">Capaian Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-sr"><i class="fas fa-paint-brush"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Seni Rupa</h3>
+            <p class="text-xs text-secondary mb-3">Capaian Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-bing"><i class="fas fa-language"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Bahasa Inggris</h3>
+            <p class="text-xs text-secondary mb-3">Capaian Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-bjawa"><i class="fas fa-comments"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Bahasa Jawa</h3>
+            <p class="text-xs text-secondary mb-3">Capaian Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TUJUAN PEMBELAJARAN (SECTION BARU) ========== -->
+    <section id="tujuan-pembelajaran" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="icon-category bg-gradient-to-br from-green-600 to-green-800">
+              <i class="fas fa-location-dot"></i>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-primary">Tujuan Pembelajaran</h2>
+          </div>
+          <button onclick="showSection('perangkat');" class="btn-outline px-5 py-2.5 rounded-lg text-sm font-medium flex items-center gap-2">
+            <i class="fas fa-arrow-left"></i> Kembali
+          </button>
+        </div>
+        <p class="text-secondary text-center mb-12">Dokumen Tujuan Pembelajaran per mata pelajaran · Kelas V</p>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- 7 MATA PELAJARAN – Ukuran font diperkecil -->
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-pp"><i class="fas fa-flag"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Pend. Pancasila</h3>
+            <p class="text-xs text-secondary mb-3">Tujuan Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-bindo"><i class="fas fa-book-open"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Bahasa Indonesia</h3>
+            <p class="text-xs text-secondary mb-3">Tujuan Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-mat"><i class="fas fa-calculator"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Matematika</h3>
+            <p class="text-xs text-secondary mb-3">Tujuan Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-ipas"><i class="fas fa-flask"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">IPAS</h3>
+            <p class="text-xs text-secondary mb-3">Tujuan Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-sr"><i class="fas fa-paint-brush"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Seni Rupa</h3>
+            <p class="text-xs text-secondary mb-3">Tujuan Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-bing"><i class="fas fa-language"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Bahasa Inggris</h3>
+            <p class="text-xs text-secondary mb-3">Tujuan Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-bjawa"><i class="fas fa-comments"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Bahasa Jawa</h3>
+            <p class="text-xs text-secondary mb-3">Tujuan Pembelajaran</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MODUL AJAR (SECTION BARU) ========== -->
+    <section id="modul-ajar" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="icon-category bg-gradient-to-br from-purple-600 to-purple-800">
+              <i class="fas fa-book"></i>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-primary">Modul Ajar</h2>
+          </div>
+          <button onclick="showSection('perangkat');" class="btn-outline px-5 py-2.5 rounded-lg text-sm font-medium flex items-center gap-2">
+            <i class="fas fa-arrow-left"></i> Kembali
+          </button>
+        </div>
+        <p class="text-secondary text-center mb-12">Dokumen Modul Ajar per mata pelajaran · Kelas V</p>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- 7 MATA PELAJARAN – Ukuran font diperkecil -->
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-pp"><i class="fas fa-flag"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Pend. Pancasila</h3>
+            <p class="text-xs text-secondary mb-3">Modul Ajar</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-bindo"><i class="fas fa-book-open"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Bahasa Indonesia</h3>
+            <p class="text-xs text-secondary mb-3">Modul Ajar</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-mat"><i class="fas fa-calculator"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Matematika</h3>
+            <p class="text-xs text-secondary mb-3">Modul Ajar</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-ipas"><i class="fas fa-flask"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">IPAS</h3>
+            <p class="text-xs text-secondary mb-3">Modul Ajar</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-sr"><i class="fas fa-paint-brush"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Seni Rupa</h3>
+            <p class="text-xs text-secondary mb-3">Modul Ajar</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-bing"><i class="fas fa-language"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Bahasa Inggris</h3>
+            <p class="text-xs text-secondary mb-3">Modul Ajar</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+          <div class="card rounded-2xl p-5 flex flex-col items-center text-center">
+            <div class="icon-subject grad-bjawa"><i class="fas fa-comments"></i></div>
+            <h3 class="font-semibold text-sm text-primary mb-1">Bahasa Jawa</h3>
+            <p class="text-xs text-secondary mb-3">Modul Ajar</p>
+            <div class="flex gap-2 w-full">
+              <button class="btn-outline flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</button>
+              <button class="btn-primary flex-1 py-2 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BUKU SISWA (dengan link PDF aktif) ========== -->
     <section id="buku" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 animate-fade-in-up">
-          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Buku Siswa</h2>
-          <p class="text-secondary mt-6">Koleksi buku panduan belajar siswa</p>
+          <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">📖 Buku Siswa</h2>
+          <p class="text-secondary mt-6 text-lg">Koleksi buku teks utama Kurikulum Merdeka · Kelas V</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-100">
-            <div class="h-40 bg-gradient-to-br from-amber-700 to-amber-900 flex items-center justify-center"><span class="text-6xl">🇮🇩</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Pendidikan Pancasila</h3>
-              <p class="text-secondary text-sm mb-3">Kelas 1-6</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+          <!-- Pendidikan Pancasila -->
+          <div class="card rounded-2xl p-6 flex flex-col items-center text-center">
+            <div class="icon-subject grad-pp"><i class="fas fa-flag"></i></div>
+            <h3 class="font-bold text-primary text-lg mb-1">Pendidikan Pancasila</h3>
+            <p class="text-secondary text-sm mb-4">Kelas 5 · Kurikulum Merdeka</p>
+            <div class="flex gap-2 w-full">
+              <a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Pendidikan-Pancasila-BS-KLS-V.pdf" target="_blank" class="btn-outline flex-1 py-2.5 rounded-lg text-xs font-medium flex items-center justify-center gap-1"><i class="fas fa-file-alt"></i> View</a>
+              <button class="btn-primary flex-1 py-2.5 rounded-lg text-xs font-medium flex items-center justify-center gap-1"><i class="fas fa-download"></i> Download</button>
             </div>
           </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-100">
-            <div class="h-40 bg-gradient-to-br from-green-700 to-green-900 flex items-center justify-center"><span class="text-6xl">📖</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Bahasa Indonesia</h3>
-              <p class="text-secondary text-sm mb-3">Edisi Terbaru</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+          <!-- Bahasa Indonesia -->
+          <div class="card rounded-2xl p-6 flex flex-col items-center text-center">
+            <div class="icon-subject grad-bindo"><i class="fas fa-book-open"></i></div>
+            <h3 class="font-bold text-primary text-lg mb-1">Bahasa Indonesia</h3>
+            <p class="text-secondary text-sm mb-4">Kelas 5 · Edisi Revisi</p>
+            <div class="flex gap-2 w-full">
+              <a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Indonesia_BS_KLS_V_Rev.pdf" target="_blank" class="btn-outline flex-1 py-2.5 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</a>
+              <button class="btn-primary flex-1 py-2.5 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
             </div>
           </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-200">
-            <div class="h-40 bg-gradient-to-br from-orange-700 to-orange-900 flex items-center justify-center"><span class="text-6xl">🔢</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Matematika</h3>
-              <p class="text-secondary text-sm mb-3">Edisi Terbaru</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+          <!-- Matematika -->
+          <div class="card rounded-2xl p-6 flex flex-col items-center text-center">
+            <div class="icon-subject grad-mat"><i class="fas fa-calculator"></i></div>
+            <h3 class="font-bold text-primary text-lg mb-1">Matematika</h3>
+            <p class="text-secondary text-sm mb-4">Kelas 5 · Edisi Revisi</p>
+            <div class="flex gap-2 w-full">
+              <a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Matematika-BS-KLS-V.pdf" target="_blank" class="btn-outline flex-1 py-2.5 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</a>
+              <button class="btn-primary flex-1 py-2.5 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
             </div>
           </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-200">
-            <div class="h-40 bg-gradient-to-br from-purple-700 to-purple-900 flex items-center justify-center"><span class="text-6xl">🔬</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">IPAS</h3>
-              <p class="text-secondary text-sm mb-3">Edisi Terbaru</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+          <!-- IPAS -->
+          <div class="card rounded-2xl p-6 flex flex-col items-center text-center">
+            <div class="icon-subject grad-ipas"><i class="fas fa-flask"></i></div>
+            <h3 class="font-bold text-primary text-lg mb-1">IPAS</h3>
+            <p class="text-secondary text-sm mb-4">Kelas 5 · Edisi Revisi</p>
+            <div class="flex gap-2 w-full">
+              <a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/IPAS_BS_KLS_V_Rev.pdf" target="_blank" class="btn-outline flex-1 py-2.5 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</a>
+              <button class="btn-primary flex-1 py-2.5 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
             </div>
           </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-300">
-            <div class="h-40 bg-gradient-to-br from-pink-700 to-pink-900 flex items-center justify-center"><span class="text-6xl">🎨</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Seni Rupa</h3>
-              <p class="text-secondary text-sm mb-3">Edisi Terbaru</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+          <!-- Seni Rupa -->
+          <div class="card rounded-2xl p-6 flex flex-col items-center text-center">
+            <div class="icon-subject grad-sr"><i class="fas fa-paint-brush"></i></div>
+            <h3 class="font-bold text-primary text-lg mb-1">Seni Rupa</h3>
+            <p class="text-secondary text-sm mb-4">Panduan Guru · Edisi Revisi</p>
+            <div class="flex gap-2 w-full">
+              <a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Seni_Rupa_BG_KLS_V_Rev.pdf" target="_blank" class="btn-outline flex-1 py-2.5 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</a>
+              <button class="btn-primary flex-1 py-2.5 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
             </div>
           </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-300">
-            <div class="h-40 bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center"><span class="text-6xl">🇬🇧</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Bahasa Inggris</h3>
-              <p class="text-secondary text-sm mb-3">Edisi Terbaru</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+          <!-- Bahasa Inggris -->
+          <div class="card rounded-2xl p-6 flex flex-col items-center text-center">
+            <div class="icon-subject grad-bing"><i class="fas fa-language"></i></div>
+            <h3 class="font-bold text-primary text-lg mb-1">Bahasa Inggris</h3>
+            <p class="text-secondary text-sm mb-4">English for Nusantara</p>
+            <div class="flex gap-2 w-full">
+              <a href="https://static.sc.cloudapp.web.id/content/pdf/bukuteks/kurikulum21/Inggris_FN_BS_KLS_V.pdf" target="_blank" class="btn-outline flex-1 py-2.5 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</a>
+              <button class="btn-primary flex-1 py-2.5 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
             </div>
           </div>
-          <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-400">
-            <div class="h-40 bg-gradient-to-br from-teal-700 to-teal-900 flex items-center justify-center"><span class="text-6xl">🗣️</span></div>
-            <div class="p-5">
-              <h3 class="font-bold text-primary mb-1">Bahasa Jawa</h3>
-              <p class="text-secondary text-sm mb-3">Edisi Terbaru</p>
-              <button class="btn-primary w-full py-2 rounded-lg font-medium text-sm text-white">Lihat</button>
+          <!-- Bahasa Jawa -->
+          <div class="card rounded-2xl p-6 flex flex-col items-center text-center">
+            <div class="icon-subject grad-bjawa"><i class="fas fa-comments"></i></div>
+            <h3 class="font-bold text-primary text-lg mb-1">Bahasa Jawa</h3>
+            <p class="text-secondary text-sm mb-4">Kelas 5 · Muatan Lokal</p>
+            <div class="flex gap-2 w-full">
+              <a href="https://drive.google.com/open?id=1FGmON_ywgVeB9HeB9IyV0a3QyIf-sDzC&authuser=0" target="_blank" class="btn-outline flex-1 py-2.5 rounded-lg text-xs font-medium"><i class="fas fa-file-alt"></i> View</a>
+              <button class="btn-primary flex-1 py-2.5 rounded-lg text-xs font-medium"><i class="fas fa-download"></i> Download</button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MATERI PEMBELAJARAN SECTION -->
+    <!-- MATERI PEMBELAJARAN (sama persis) -->
     <section id="materi" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 animate-fade-in-up">
@@ -416,6 +738,7 @@
           <p class="text-secondary mt-6">Kumpulan materi belajar per mata pelajaran</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- (konten materi) -->
           <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
             <div class="flex items-start gap-4">
               <div class="w-12 h-12 primary-dark rounded-xl flex items-center justify-center flex-shrink-0"><span class="text-2xl">🇮🇩</span></div>
@@ -483,7 +806,7 @@
       </div>
     </section>
 
-    <!-- VIDEO PEMBELAJARAN SECTION -->
+    <!-- VIDEO PEMBELAJARAN (sama persis) -->
     <section id="video" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 animate-fade-in-up">
@@ -491,6 +814,7 @@
           <p class="text-secondary mt-6">Belajar lebih menyenangkan dengan video interaktif</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- (konten video) -->
           <div class="card rounded-2xl overflow-hidden animate-fade-in-up delay-100">
             <div class="relative h-44 bg-gradient-to-br from-amber-700 to-amber-900 flex items-center justify-center">
               <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur">
@@ -579,7 +903,7 @@
       </div>
     </section>
 
-    <!-- LATIHAN SOAL SECTION -->
+    <!-- LATIHAN SOAL (sama persis) -->
     <section id="latihan" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 animate-fade-in-up">
@@ -587,6 +911,7 @@
           <p class="text-secondary mt-6">Asah kemampuanmu dengan latihan soal beragam</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- (7 kartu latihan) -->
           <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
             <div class="flex items-center justify-between mb-4">
               <span class="text-3xl">🇮🇩</span>
@@ -668,7 +993,7 @@
       </div>
     </section>
 
-    <!-- GAME INTERAKTIF SECTION -->
+    <!-- GAME INTERAKTIF -->
     <section id="game" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 animate-fade-in-up">
@@ -676,6 +1001,7 @@
           <p class="text-secondary mt-6">Belajar menjadi lebih seru dan menyenangkan</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- (7 kartu game) -->
           <div class="card rounded-2xl p-6 animate-fade-in-up delay-100">
             <div class="flex items-center justify-between mb-4">
               <span class="text-3xl">🎯</span>
@@ -757,7 +1083,7 @@
       </div>
     </section>
 
-    <!-- GALERI KEGIATAN SECTION -->
+    <!-- GALERI KEGIATAN -->
     <section id="galeri" class="py-16 md:py-20 bg-primary section-hidden min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 animate-fade-in-up">
@@ -793,7 +1119,7 @@
       </div>
     </section>
 
-    <!-- KONTAK SECTION -->
+    <!-- KONTAK -->
     <section id="kontak" class="py-16 md:py-20 bg-secondary section-hidden min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 animate-fade-in-up">
@@ -849,7 +1175,7 @@
   </div>
 
   <script>
-    // ===== KODE JAVASCRIPT RINGAN – TANPA SDK, TANPA BLOAT =====
+    // ===== JAVASCRIPT RINGAN =====
     const defaultText = {
       full_name: 'Tisna Dwi Cahyono, S.Pd',
       position: 'Guru Kelas 5',
@@ -869,7 +1195,7 @@
         target.classList.remove('section-hidden');
         target.classList.add('section-visible');
       }
-      const footerSections = ['profil', 'modul', 'buku', 'materi', 'video', 'latihan', 'game', 'galeri', 'kontak'];
+      const footerSections = ['profil', 'perangkat', 'buku', 'materi', 'video', 'latihan', 'game', 'galeri', 'kontak', 'capaian-pembelajaran', 'tujuan-pembelajaran', 'modul-ajar'];
       if (footerSections.includes(sectionId)) {
         document.getElementById('footer').classList.remove('section-hidden');
         document.getElementById('footer').classList.add('section-visible');
